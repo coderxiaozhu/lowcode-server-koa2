@@ -8,6 +8,7 @@ const logger = require('koa-logger')
 
 const index = require('./routes/index')
 const users = require('./routes/users')
+const jwt = require("./middlewares/jwt")
 
 // error handler
 onerror(app)
@@ -19,6 +20,7 @@ app.use(bodyparser({
 app.use(json())
 app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))
+app.use(jwt)
 
 app.use(views(__dirname + '/views', {
   extension: 'pug'

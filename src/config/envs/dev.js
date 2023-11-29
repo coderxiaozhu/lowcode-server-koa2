@@ -18,5 +18,7 @@ module.exports = {
     port: '6379',
     host: '127.0.0.1',
     password: '123456'
-  }
+  },
+  // jwt过期时间
+  jwtExpiresIn: '1d'
 };
