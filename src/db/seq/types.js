@@ -1,4 +1,5 @@
-const Sequelize = require('sequelize')
+// 封装实体模型的类型
+const Sequelize = require('sequelize');
 
 module.exports = {
     STRING: Sequelize.STRING,
@@ -6,4 +7,4 @@ module.exports = {
     INTEGER: Sequelize.INTEGER,
     BOOLEAN: Sequelize.BOOLEAN,
     DATE: Sequelize.DATE
-}
+};
