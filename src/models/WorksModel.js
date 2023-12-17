@@ -34,7 +34,7 @@ const Work = seq.define('work', {
     author: {
         type: STRING,
         allowNull: false,
-        comment: '作者 username'
+        comment: '作者 userName'
     },
     coverImg: {
         type: STRING,
@@ -88,7 +88,7 @@ const Work = seq.define('work', {
 // 和userModel建立关系
 Work.belongsTo(UserModel, {
     foreignKey: 'author',
-    targetKey: 'username' // 对应UserModel.username
+    targetKey: 'userName' // 对应UserModel.userName
 });
 
 module.exports = Work;

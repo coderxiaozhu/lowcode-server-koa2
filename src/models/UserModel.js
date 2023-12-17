@@ -2,10 +2,10 @@ const seq = require('../db/seq/seq');
 const { STRING, DATE, BOOLEAN } = require('../db/seq/types');
 
 const User = seq.define('user', {
-    username: {
+    userName: {
         type: STRING,
         allowNull: false,
-        unique: 'username',
+        unique: 'userName',
         comment: '用户名, 唯一'
     },
     password: {
@@ -16,7 +16,7 @@ const User = seq.define('user', {
     phoneNumber: {
         type: STRING,
         allowNull: false,
-        unique: 'username',
+        unique: 'userName',
         comment: '手机号,唯一'
     },
     nickName: {

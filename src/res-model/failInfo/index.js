@@ -1,7 +1,9 @@
-const errorInfos = require("./error")
-const users = require("./users")
+const errorInfos = require('./error');
+const usersInfo = require('./users');
+const validateInfo = require('./validate');
 
 module.exports = {
     ...errorInfos,
-    ...users
-}
+    ...usersInfo,
+    ...validateInfo
+};

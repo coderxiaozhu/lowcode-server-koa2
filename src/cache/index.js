@@ -1,4 +1,4 @@
-const redisClient = require("../db/redis")
+const redisClient = require('../db/redis');
 
 /**
  * redis set
@@ -7,12 +7,12 @@ const redisClient = require("../db/redis")
 function cacheSet(key, val, timeout = 60 * 60) {
     let formatVal;
     if (typeof val === 'object') {
-        formatVal = JSON.stringify(val)
+        formatVal = JSON.stringify(val);
     } else {
-        formatVal = val
+        formatVal = val;
     }
-    redisClient.set(key, formatVal)
-    redisClient.expire(key, timeout)
+    redisClient.set(key, formatVal);
+    redisClient.expire(key, timeout);
 }
 
 /**
@@ -23,25 +23,24 @@ function cacheGet(key) {
     const promise = new Promise((resolve, reject) => {
         redisClient.get(key, (err, val) => {
             if (err) {
-                reject(err)
-                return
+                reject(err);
+                return;
             }
             if (val == null) {
-                resolve(null)
-                return
+                resolve(null);
+                return;
             }
             try {
-                console.log(JSON.parse(val))
-                resolve(JSON.parse(val))
+                resolve(JSON.parse(val));
             } catch (ex) {
-                resolve(val)
+                resolve(val);
             }
-        })
-    })
-    return promise
-}   
+        });
+    });
+    return promise;
+}
 
 module.exports = {
     cacheSet,
     cacheGet
-}
+};
