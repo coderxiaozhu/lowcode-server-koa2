@@ -5,7 +5,8 @@ module.exports = {
         user: 'root',
         password: 'root',
         port: '3306',
-        database: 'lowcode_db'
+        database: 'lowcode_db',
+        timezone: '+08:00'
     },
     // mongodb配置
     mongodbConf: {

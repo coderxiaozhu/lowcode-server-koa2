@@ -3,11 +3,17 @@ const { mysqlConfig } = require('../../config/envs/dev');
 const { isProd, isTest } = require('../../utils/env');
 
 // 连接配置
-const { database, user, password, host, port } = mysqlConfig;
+const { database, user, password, host, port, timezone } = mysqlConfig;
 const conf = {
     host,
     port,
-    dialect: 'mysql'
+    dialect: 'mysql',
+    timezone,
+    // 解决时区问题
+    dialectOptions: {
+        dateStrings: true,
+        typeCast: true
+    }
 };
 
 // 测试环境不打印日志

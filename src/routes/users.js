@@ -23,7 +23,6 @@ router.post('/genVeriCode', genValidator(phoneNumberSchema), async (ctx) => {
 // 使用手机号登录
 router.post('/loginByPhoneNumber', genValidator(phoneNumberVeriCodeSchema), async (ctx) => {
     const { phoneNumber, veriCode } = ctx.request.body;
-    console.log(ctx.request.body);
     const res = await loginByPhoneNumber(phoneNumber, veriCode);
 
     ctx.body = res;
@@ -37,7 +36,6 @@ router.get('/getUserInfo', loginCheck, async (ctx) => {
 
 // 修改用户信息
 router.patch('/updateUserInfo', loginCheck, genValidator(userInfoSchema), async (ctx) => {
-    console.log(ctx.userInfo);
     // 经过中间件, 用户信息在ctx.userInfo
     const res = await updateUserInfo(ctx.userInfo, ctx.request.body);
     ctx.body = res;

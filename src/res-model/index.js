@@ -1,29 +1,30 @@
 /**
  * 基础模型, 包括 errno data message
+ * errno 0是正确 -1 是失败
  */
 class BaseRes {
-  constructor({ errno, data, message }) {
-    this.errno = errno;
-    if (data) {
-      this.data = data;
+    constructor({ errno, data, message }) {
+        this.errno = errno;
+        if (data) {
+            this.data = data;
+        }
+        if (message) {
+            this.message = message;
+        }
     }
-    if (message) {
-      this.message = message;
-    }
-  }
 }
 
 /**
  * 执行失败的模型
  */
 class ErrorRes extends BaseRes {
-  constructor({ errno = -1, message = "", data }, addMessage = "") {
-    super({
-      errno,
-      message: addMessage ? `${message} - ${addMessage}` : message,
-      data
-    });
-  }
+    constructor({ errno = -1, message = '', data }, addMessage = '') {
+        super({
+            errno,
+            message: addMessage ? `${message} - ${addMessage}` : message,
+            data
+        });
+    }
 }
 
 /**
@@ -34,11 +35,11 @@ class SuccessRes extends BaseRes {
         super({
             errno: 0,
             data
-        })
+        });
     }
 }
 
 module.exports = {
     ErrorRes,
     SuccessRes
-}
+};
