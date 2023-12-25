@@ -78,7 +78,7 @@ const Work = seq.define('work', {
         defaultValue: 0,
         comment: '排序参数'
     },
-    isPublish: {
+    isPublic: {
         type: BOOLEAN,
         defaultValue: false,
         comment: '是否公开显示,在首页公共的模板列表'

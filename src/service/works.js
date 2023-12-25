@@ -133,7 +133,7 @@ async function findWorkListService(queryInfo = {}, pageInfo = {}) {
     delete queryInfo.title; // eslint-disable-line
     if (isTemplate != null) {
         Object.assign(whereOpt, {
-            isTemplate: !!isTemplate
+            isTemplate: !!isTemplate // 切换成为布尔值
         });
         delete queryInfo.isTemplate; // eslint-disable-line
     }
@@ -151,18 +151,15 @@ async function findWorkListService(queryInfo = {}, pageInfo = {}) {
         Object.assign(whereOpt, { status: statusNum });
     }
     delete queryInfo.status; // eslint-disable-line
-
     // 2.执行其他查询条件
     _.forEach(queryInfo, (value, key) => {
         if (value === null) return;
         whereOpt[key] = value;
     });
-
     // 执行查询
     const { pageSize, pageIndex } = pageInfo;
     const pageSizeNumber = parseInt(pageSize, 10);
     const pageIndexNumber = parseInt(pageIndex, 10);
-    console.log(whereOpt);
     const result = await WorksModel.findAndCountAll({
         limit: pageSizeNumber, // 页容量
         offset: (pageIndexNumber - 1) * pageSizeNumber, // 跳过的多少条
