@@ -19,5 +19,5 @@ jobs:
         node-version: 14
     - run: |
           npm i
-          npm run lint-lint
+          npm run lint-fix
           npm run lint
