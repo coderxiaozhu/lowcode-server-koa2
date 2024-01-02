@@ -1,4 +1,4 @@
-const ENV = process.env.NODE_ENV || ""
+const ENV = process.env.NODE_ENV || '';
 module.exports = {
     ENV,
     isProd: ENV === 'production',
@@ -7,4 +7,4 @@ module.exports = {
     isTest: ENV.indexOf('test') === 0,
     isTestLocal: ENV === 'test_local',
     isTestRemote: ENV === 'test_remove'
-}
+};
