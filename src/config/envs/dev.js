@@ -26,6 +26,9 @@ module.exports = {
     // cors origin
     corsOrigin: '*',
 
+    // 发布出来的 h5 域名
+    h5Origin: 'http://localhost:3000',
+
     // 短信验证码缓存时间,单位 s
     msgVeriCodeTimeout: 2 * 60
 };

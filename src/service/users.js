@@ -51,7 +51,6 @@ async function updateUserInfoService(userName, data = {}) {
             userName
         }
     });
-    console.log(result);
     return result[0] != 0;
 }
 

@@ -8,6 +8,7 @@ const { createWorks, copyWorks } = require('../controller/works/createWorks');
 const { findOneWork, findMyWorks } = require('../controller/works/findWork');
 const { updateWorks, transferWorks } = require('../controller/works/updateWorks');
 const { deleteWork, putBackWork } = require('../controller/works/deleteWorks');
+const { publishWork } = require('../controller/works/publishWork');
 
 // 路由前缀
 router.prefix('/api/works');
@@ -76,6 +77,22 @@ router.get('/', loginCheck, async (ctx) => {
     const { pageIndex, isTemplate = '0', pageSize, title, status } = ctx.query;
     const { userName } = ctx.userInfo;
     const res = await findMyWorks(userName, { isTemplate, title, status }, { pageIndex, pageSize });
+    ctx.body = res;
+});
+
+// 发布作品
+router.post('/publish/:id', loginCheck, async (ctx) => {
+    const { id } = ctx.params;
+    const { userName } = ctx.userInfo;
+    const res = await publishWork(id, userName);
+    ctx.body = res;
+});
+
+// 发布为模板
+router.post('/publish-template/:id', loginCheck, async (ctx) => {
+    const { id } = ctx.params;
+    const { userName } = ctx.userInfo;
+    const res = await publishWork(id, userName, true);
     ctx.body = res;
 });
 
