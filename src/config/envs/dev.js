@@ -3,8 +3,8 @@ module.exports = {
     mysqlConfig: {
         host: 'localhost',
         user: 'root',
-        password: 'root',
-        port: '3306',
+        password: '123456',
+        port: '3307',
         database: 'lowcode_db',
         timezone: '+08:00'
     },
@@ -16,9 +16,8 @@ module.exports = {
     },
     // redis配置
     redisConf: {
-        port: '6379',
-        host: '127.0.0.1',
-        password: '123456'
+        port: '6380',
+        host: '127.0.0.1'
     },
     // jwt过期时间
     jwtExpiresIn: '1d', // 1. 字符串，如 '1h' '2d'； 2. 数字，单位是 s
@@ -30,5 +29,5 @@ module.exports = {
     h5Origin: 'http://localhost:3000',
 
     // 短信验证码缓存时间,单位 s
-    msgVeriCodeTimeout: 2 * 60
+    msgVeriCodeTimeout: 20 * 60
 };

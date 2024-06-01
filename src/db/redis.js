@@ -11,11 +11,8 @@ redisClient.on('error', (err) => {
     console.error('redis connect error', err);
 });
 // 运行 node src/db/redis.js 进行测试连接
-// redisClient.on('connect', () => {
-//     console.log('redis connect success');
-//     redisClient.set('foo', 'bar', redis.print) // => Reply: OK
-//     redisClient.get('foo', redis.print) // => Reply: bar
-//     redisClient.quit()
-// })
+redisClient.on('connect', () => {
+    console.log('redis connect success');
+});
 
 module.exports = redisClient;
